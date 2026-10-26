@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Auto MPG — Zayd Bentalha</title>
+  <meta name="description" content="Analyse descriptive et prédiction de la consommation (Random Forest) sur le dataset Auto MPG.">
+  <style>
+    :root {
+      --bg: #f6f7f9; --carte: #ffffff; --texte: #1f2430; --doux: #5c6370;
+      --accent: #e8463a; --bord: #e2e5ea;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14161b; --carte: #1d2027; --texte: #e8eaee; --doux: #a3a9b4;
+        --accent: #ff6b5f; --bord: #2c3039;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--texte);
+      font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    main { max-width: 1100px; margin: 0 auto; padding: 32px 16px 48px; }
+    h1 { font-size: clamp(1.6rem, 4vw, 2.3rem); margin: 0 0 4px; }
+    .sous-titre { color: var(--doux); margin: 0 0 24px; }
+    .cartes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .carte { background: var(--carte); border: 1px solid var(--bord); border-radius: 10px; padding: 16px 18px; }
+    .carte h2 { font-size: 1.05rem; margin: 0 0 8px; }
+    .carte ul { margin: 0; padding-left: 18px; color: var(--doux); }
+    .bouton {
+      display: inline-block; background: var(--accent); color: #fff; text-decoration: none;
+      padding: 10px 18px; border-radius: 8px; font-weight: 600; margin-bottom: 16px;
+    }
+    .cadre { border: 1px solid var(--bord); border-radius: 10px; overflow: hidden; background: var(--carte); }
+    iframe { display: block; width: 100%; height: 80vh; min-height: 560px; border: 0; }
+    footer { color: var(--doux); font-size: .9rem; margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>🚗 Exploration des données automobiles</h1>
+    <p class="sous-titre">Devoir 02 — SmartDev, EMSI S9 · Zayd Bentalha · Dataset Auto MPG (398 véhicules, 1970-1982)</p>
+
+    <div class="cartes">
+      <section class="carte">
+        <h2>📊 Analyse descriptive (sans ML)</h2>
+        <ul>
+          <li>Filtres : origine, année, nombre de cylindres, mpg minimal</li>
+          <li>Puissance et consommation moyennes</li>
+          <li>Relation poids / consommation</li>
+          <li>Comparaison des véhicules par origine</li>
+        </ul>
+      </section>
+      <section class="carte">
+        <h2>🤖 Prédiction (Random Forest)</h2>
+        <ul>
+          <li>Saisie des caractéristiques d'un véhicule</li>
+          <li>Consommation estimée en L/100 km et en mpg</li>
+          <li>MAE, RMSE, R² et importance des variables</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Remplacer APP_URL par l'adresse de l'application Streamlit Cloud. -->
+    <a class="bouton" id="lien-app" href="https://APP_URL.streamlit.app" target="_blank" rel="noopener">Ouvrir l'application ↗</a>
+    <div class="cadre">
+      <iframe id="cadre-app" src="https://APP_URL.streamlit.app/?embed=true" title="Application Auto MPG" loading="lazy"></iframe>
+    </div>
+
+    <footer>L'application tourne sur Streamlit Community Cloud ; si elle est en veille, le premier chargement peut prendre une trentaine de secondes.</footer>
+  </main>
+</body>
+</html>
